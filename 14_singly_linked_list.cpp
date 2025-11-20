@@ -39,31 +39,23 @@ public:
         t->next = n;
         cout << "Inserted " << x << " after position " << pos << endl;
     }
-
-
+      void display() {
+        if (!head) { cout << "List is empty" << endl; return; }
+        cout << "List: ";
+        Node* t = head;
+        while (t) { cout << t->data << " "; t = t->next; }
+        cout << endl;
+    }
+};
 
 int main() {
     SinglyLinkedList list;
-    while (true) {
-        cout << "1 Insert at beginning" << endl;
-        cout << "2 Insert at end" << endl;
-        cout << "3 Insert after position" << endl;
-        cout << "4 Delete by value" << endl;
-        cout << "5 Delete by position" << endl;
-        cout << "6 Display" << endl;
-        cout << "7 Exit" << endl;
-        cout << "Choose option: ";
-        int ch;
-        if (!(cin >> ch)) break;
-        if (ch == 1) {
-            int x; cout << "Enter value: "; cin >> x; list.insertAtBeginning(x);
-        } else if (ch == 2) {
-            int x; cout << "Enter value: "; cin >> x; list.insertAtEnd(x);
-        } else if (ch == 3) {
-            int pos, x; cout << "Enter position (0-based): "; cin >> pos; cout << "Enter value: "; cin >> x; list.insertAfterPosition(pos, x);
-        } else {
-            cout << "Invalid choice" << endl;
-        }
-    }
-    return 0;
+        int x;
+        int pos;
+        cout << "Enter value: "; cin >> x; list.insertAtBeginning(x);
+        cout << "Enter value: "; cin >> x; list.insertAtBeginning(x);
+        list.display();
+        cout << "Enter value: "; cin >> x; list.insertAtEnd(x);
+        cout << "Enter position (0-based): "; cin >> pos; cout << "Enter value: "; cin >> x; list.insertAfterPosition(pos, x);
+        list.display();
 }
