@@ -1,18 +1,17 @@
 #include <iostream>
 using namespace std;
-int main()
-{
-    int n, a[100];
-    cin >> n;
-    for (int i = 0; i < n; i++)
-        cin >> a[i];
-    for (int p = 0; p < n - 1; p++)
-    {
-        for (int j = 0; j < n - p - 1; j++)
-            if (a[j] > a[j + 1])
-                swap(a[j], a[j + 1]);
-        for (int i = 0; i < n; i++)
-            cout << a[i] << " ";
-        cout << endl;
+int main(){
+    cout<<"Enter array size: ";
+    int n; cin>>n;
+    int a[100];
+    cout<<"Enter elements: ";
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-i-1;j++){
+            if(a[j]>a[j+1]) swap(a[j],a[j+1]);
+        }
+        cout<<"After pass "<<i+1<<": ";
+        for(int k=0;k<n;k++) cout<<a[k]<<(k+1==n? '\n' : ' ');
     }
+    return 0;
 }
