@@ -63,34 +63,11 @@ public:
 
 int main() {
     Queue q;
-
-    while (true) {
-        cout << "1 Enqueue" << endl;
-        cout << "2 Dequeue" << endl;
-        cout << "3 Peek" << endl;
-        cout << "4 Display" << endl;
-        cout << "5 Exit" << endl;
-        cout << "Choose option: ";
-
-        int choice;
-        cin >> choice;
-
-        if (choice == 1) {
-            int x;
-            cout << "Enter value to enqueue: ";
-            cin >> x;
-            q.enqueue(x);
-        } else if (choice == 2) {
-            q.dequeue();
-        } else if (choice == 3) {
-            q.peek();
-        } else if (choice == 4) {
-            q.display();
-        } else if (choice == 5) {
-            break;
-        } else {
-            cout << "Invalid choice" << endl;
-        }
-    }
-    return 0;
+    q.enqueue(4);
+    q.enqueue(5);
+    q.enqueue(2);
+    q.display();
+    q.dequeue();
+    q.peek();
+    q.display();
 }
