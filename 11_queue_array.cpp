@@ -30,6 +30,7 @@ public:
         }
         rearIndex = (rearIndex + 1) % capacity;
         arr[rearIndex] = x;
+        cout<<x<<" added in queue\n";
         size++;
     }
 
@@ -38,7 +39,9 @@ public:
             cout << "Queue Underflow\n";
             return;
         }
+        cout<<arr[frontIndex]<<" removed from queue\n";
         frontIndex = (frontIndex + 1) % capacity;
+        
         size--;
     }
 
@@ -47,6 +50,7 @@ public:
             cout << "Queue is empty\n";
             return -1;
         }
+        cout<<"Next Element: "; 
         return arr[frontIndex];
     }
 };

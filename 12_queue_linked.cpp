@@ -29,12 +29,13 @@ public:
 
     void enqueue(int x) {
         Node* newNode = new Node(x);
-        if (rearNode == nullptr) { /
+        if (rearNode == nullptr) {
             frontNode = rearNode = newNode;
             return;
         }
         rearNode->next = newNode;
         rearNode = newNode;
+        cout<<newNode->data<<" added in the queue.\n";
     }
 
     void dequeue() {
@@ -47,6 +48,7 @@ public:
         if (frontNode == nullptr) {
             rearNode = nullptr;
         }
+        cout<<temp->data<<" removed from the queue.\n";
         delete temp;
     }
 
@@ -55,6 +57,8 @@ public:
             cout << "Queue is empty\n";
             return -1;
         }
+        
+        cout<<"Next Element: ";
         return frontNode->data;
     }
 };
