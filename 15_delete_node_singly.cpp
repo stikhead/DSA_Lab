@@ -10,14 +10,12 @@ struct Node {
 class SinglyLinkedList {
     Node* head;
 public:
-
     void createNode(int x) {
         Node* n = new Node(x);
-        if (!head) { head = n; cout << "Inserted " << x << " at end" << endl; return; }
+        if (!head) { head = n; return; }
         Node* t = head;
         while (t->next) t = t->next;
         t->next = n;
-        cout << "Inserted " << x << " at end" << endl;
     }
     SinglyLinkedList() { head = nullptr; }
     void deleteByValue(int x) {
@@ -70,29 +68,13 @@ public:
 int main() {
     SinglyLinkedList list;
     int x = 0;
-    while(x<10){
-        createNode(x);
+    while(x<6){
+        list.createNode(x);
         x++;
     }
-    while (true) {
-        cout << "1 Delete by value" << endl;
-        cout << "2 Delete by position" << endl;
-        cout<< "3 Display List" << endl;
-        cout << "4 Exit" << endl;
-        cout << "Choose option: ";
-        int ch;
-        if (!(cin >> ch)) break;
-        if (ch == 1) {
-            int x; cout << "Enter value to delete: "; cin >> x; list.deleteByValue(x);
-        } else if (ch == 2) {
-            int pos; cout << "Enter position (0-based) to delete: "; cin >> pos; list.deleteByPosition(pos);
-        } else if (ch == 3) {
-            list.display();
-        } else if (ch == 4) {
-            break;
-        } else {
-            cout << "Invalid choice" << endl;
-        }
-    }
-    return 0;
+    list.display();
+    int y, pos;
+    cout << "Enter value to delete: "; cin >> x; list.deleteByValue(x);
+    cout << "Enter position (0-based) to delete: "; cin >> pos; list.deleteByPosition(pos);
+    list.display();
 }
