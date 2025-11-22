@@ -18,7 +18,6 @@ void inorderTraversal(Node* root) {
     inorderTraversal(root->right); 
 }
 
-// Recursive Preorder Traversal
 void preorderTraversal(Node* root) {
     if (root == nullptr) {
         return;

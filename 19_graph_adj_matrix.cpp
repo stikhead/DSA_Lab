@@ -12,17 +12,21 @@ public:
     }
 
     void addEdge(int u, int v, int w=1) {
-        if (u<0 || u>=n || v<0 || v>=n) { cout << "Invalid nodes" << endl; return; }
+        if (u<0 || u>=n || v<0 || v>=n) {
+            cout << "Invalid nodes\n";
+            return; 
+        }
         mat[u][v] = w;
         mat[v][u] = w;
-        cout << "Added edge " << u << " - " << v << endl;
+        cout <<u<<"-"<<v<<" Added edge\n";
     }
 
     void display() {
-        cout << "Adjacency matrix:" << endl;
+        cout << "Adjacency matrix:\n";
         for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) cout << mat[i][j] << " ";
-            cout << endl;
+            for (int j = 0; j < n; ++j){
+                cout << mat[i][j] << " ";
+            }
         }
     }
 };
@@ -33,17 +37,20 @@ int main() {
     cin >> n;
     Graph g(n);
     while (true) {
-        cout << "1 Add edge" << endl;
-        cout << "2 Display matrix" << endl;
-        cout << "3 Exit" << endl;
+        cout << "1 Add edge\n";
+        cout << "2 Display matrix\n";
+        cout << "3 Exit\n";
         cout << "Choose option: ";
         int ch; cin >> ch;
         if (ch == 1) {
-            int u,v; cout << "Enter u v: "; cin >> u >> v; g.addEdge(u,v);
+            int u,v;
+            cout << "Enter u v: ";
+            cin >> u >> v;
+            g.addEdge(u,v);
         } else if (ch == 2) {
             g.display();
         } else if (ch == 3) break;
-        else cout << "Invalid choice" << endl;
+        else cout << "Invalid choice\n";
     }
     return 0;
 }
